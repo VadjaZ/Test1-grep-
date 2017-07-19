@@ -15,7 +15,7 @@ public class Main {
         choise = nwMenu.choiseMenu();
 
         ParserBuilder parsB = new ParserBuilder();
-        smText = parsB.parserBuild(choise,smWRDToFnd);
+        smText = parsB.parserBuild(choise, smWRDToFnd);
 
         Output prntText = new Output();
         prntText.printText(smText);

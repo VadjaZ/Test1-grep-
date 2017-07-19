@@ -20,14 +20,13 @@ public class FileParser implements Parser {
             BufferedReader bfrRdr = new BufferedReader(new InputStreamReader(inptText));
             while ((smText = bfrRdr.readLine()) != null) {
                 if (smText.contains(smWRD)) {
-                    text+=smText+"\n";
+                    text += smText + "\n";
                 }
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        if(text==null)
-        {
+        if (text == null) {
             System.out.println("Can`t find this word");
         }
         return text;

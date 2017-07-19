@@ -15,6 +15,6 @@ public class Menu {
                 "Press 1 -Insert text to console;\n" +
                 "Press 2 -Load from file.");
         choise = scnr.next();
-        return  choise;
+        return choise;
     }
 }
