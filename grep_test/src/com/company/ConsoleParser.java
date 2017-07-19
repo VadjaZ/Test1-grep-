@@ -3,39 +3,28 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  * Created by Admin on 16.07.2017.
  */
 public class ConsoleParser implements Parser {
-    static String text = "";
 
     @Override
-    public String ScanText(String smWRD) {
+    public String scanText(String someWord) {
 
-        String smWordToFind=smWRD;
-        String text = null;
-        String smText = null;
+        String text =null;
+        String smText=null ;
         System.out.println("Insert some text: ");
-        BufferedReader bfrRdr = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            while ((smText = bfrRdr.readLine()) != null) {
-                if (smText.contains(smWordToFind)) {
-                    text += smText + "\n";
-                }
-            }
-            if(text==null){
-                    System.out.println("There are no words like this :( ");
-            }
+        Scanner scanner=new Scanner (System.in);
+        while ((smText = scanner.nextLine()) !="") {
+            if (smText.contains(someWord)) text += smText + "\n";
         }
-            catch (IOException ex) {
-            System.out.println(ex.getMessage());
-                try {
-                    bfrRdr.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        scanner.close();
+     if (text == "") {
+         System.out.println("There are no words like this :( ");
+
+        }
 
         return text;
     }

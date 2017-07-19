@@ -11,21 +11,24 @@ import java.io.InputStreamReader;
 
 public class FileParser implements Parser {
     static String path = "D:\\Навчання\\Різне\\Calc.txt";
-    static String smText = "";
-    static String text = "";
+    static String smText = null;
+    static String text = null;
 
     @Override
-    public String ScanText(String smWRD) {
-        String smWordToFind = smWRD;
+    public String scanText(String smWRD) {
         try (FileInputStream inptText = new FileInputStream(path)) {
             BufferedReader bfrRdr = new BufferedReader(new InputStreamReader(inptText));
             while ((smText = bfrRdr.readLine()) != null) {
-                if (smText.contains(smWordToFind)) {
+                if (smText.contains(smWRD)) {
                     text+=smText+"\n";
                 }
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
+        }
+        if(text==null)
+        {
+            System.out.println("Can`t find this word");
         }
         return text;
     }
