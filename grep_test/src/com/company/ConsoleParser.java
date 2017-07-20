@@ -17,6 +17,7 @@ public class ConsoleParser implements Parser {
         while (!(smText = scanner.nextLine()).equals("")) {
             if (smText.contains(someWord)) text += smText + "\n";
         }
+        scanner.close();
         if (text.equals("")) {
             System.out.println("There are no words like this :( ");
         }
